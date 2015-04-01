@@ -47,7 +47,4 @@ class @OnboardingDeviceConnectingViewController extends @OnboardingViewControlle
             @navigateContinue()
 
   _listenEvents: ->
-    if ledger.app.wallet?
-      ledger.app.performDongleAttestation()
-    ledger.app.once 'dongle:connected', => do @navigateContinue
-    ledger.app.once 'dongle:forged', => do @navigateError
+    ledger.app.router.go '/onboarding/device/update'

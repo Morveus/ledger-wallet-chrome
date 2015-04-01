@@ -40,7 +40,8 @@ class @OnboardingDevicePlugViewController extends @OnboardingViewController
     , 1500
 
   navigateContinue: ->
-    ledger.app.router.go '/onboarding/device/connecting'
+    ledger.app.setExecutionMode(ledger.app.Modes.FirmwareUpdate)
+    ledger.app.router.go '/update/seed'
 
   _listenEvents: ->
     if ledger.app.wallet? and !ledger.app.wallet.isInBootloaderMode()
