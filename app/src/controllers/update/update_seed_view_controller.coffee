@@ -14,6 +14,7 @@ class @UpdateSeedViewController extends UpdateViewController
     super
     @_listenEvents()
     @_updateValidCheck()
+    @showQRCodeReader()
 
   navigatePrevious: ->
     ledger.app.setExecutionMode(ledger.app.Modes.Wallet)
@@ -37,14 +38,27 @@ class @UpdateSeedViewController extends UpdateViewController
       @parentViewController.updateNavigationItems()
       @_updateValidCheck()
     @view.openScannerButton.on 'click', =>
-      dialog = new CommonDialogsQrcodeDialogViewController
-      dialog.qrcodeCheckBlock = (data) =>
-        return @_keychardValueIsValid data
-      dialog.once 'qrcode', (event, data) =>
-        @view.seedInput.val data
-        @parentViewController.updateNavigationItems()
-        @_updateValidCheck()
-      dialog.show()
+      @showQRCodeReader()
+
+  showQRCodeReader: ->
+    dialog = new CommonDialogsQrcodeDialogViewController
+    dialog.qrcodeCheckBlock = (data) =>
+      return @_keychardValueIsValid data
+    dialog.once 'qrcode', (event, data) =>
+      @view.seedInput.val data
+      @parentViewController.updateNavigationItems()
+      @_updateValidCheck()
+    dialog.show()
 
   _updateValidCheck: ->
-    if @_keychardValueIsValid @view.seedInput.val() then @view.validCheck.show() else @view.validCheck.hide()
+    if @_keychardValueIsValid @view.seedInput.val()
+      fullSeed = @view.seedInput.val()
+
+      keyData     = ISO7064Mod97_10Check.getData(fullSeed)
+      checkEncode = ISO7064Mod97_10Check.encode(keyData)
+
+      if fullSeed == checkEncode
+        @view.validCheck.show()
+        @navigateNext()
+
+    else @view.validCheck.hide()

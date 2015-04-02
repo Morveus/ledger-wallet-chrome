@@ -9,3 +9,5 @@ doc/
 dist/
 *.log
 signature/
+build.crx
+build.pem

@@ -56,6 +56,7 @@
         '../libs/moment.min'
         '../libs/lokijs.min'
         '../libs/bitcoinjs-min'
+        '../libs/ISO7064Mod97_10'
 
         # Used be m2fa.DebugClient
         '../libs/lw-api-js/ucrypt/ka'

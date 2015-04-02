@@ -1,5 +1,5 @@
 application:
-  name: 'Ledger Wallet'
+  name: 'Vierzon Wallet'
   small_description: "Ledger Wallet manages your Bitcoin accounts efficiently and securely."
   support_url: 'http://support.ledgerwallet.com/'
 

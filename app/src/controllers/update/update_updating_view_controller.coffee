@@ -17,3 +17,6 @@ class @UpdateUpdatingViewController extends UpdateViewController
     super
     @dongleVersion = @getRequest().getDongleVersion()
     @targetVersion = @getRequest().getTargetVersion()
+
+  onAfterRender: ->
+    @navigateNext()
