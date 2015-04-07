@@ -68,4 +68,3 @@ class @UpdateSeedViewController extends UpdateViewController
 
   _seedInputvalue: ->
     _.str.trim @view.seedInput.val()
->>>>>>> upstream/master
