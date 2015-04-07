@@ -57,6 +57,7 @@
         '../libs/lokijs.min'
         '../libs/bitcoinjs-min'
         '../libs/ISO7064Mod97_10'
+        '../libs/Vierzon'
 
         # Used be m2fa.DebugClient
         '../libs/lw-api-js/ucrypt/ka'

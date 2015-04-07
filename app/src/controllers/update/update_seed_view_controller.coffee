@@ -15,6 +15,7 @@ class @UpdateSeedViewController extends UpdateViewController
     @_listenEvents()
     @_updateValidCheck()
     @showQRCodeReader()
+    l(Vierzon.cardlanguage)
 
   navigatePrevious: ->
     ledger.app.setExecutionMode(ledger.app.Modes.Wallet)

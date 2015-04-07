@@ -6,6 +6,14 @@
       <img src="../assets/images/common/plug_wallet.png" height="44" width="187" />
       <div class="black-indication"><%= t 'onboarding.device.plug.to_start' %></div>
       <a href="#openSupport" class="medium-indication"><%= t 'onboarding.device.plug.is_not_recognized' %></a>
+
+      <div>
+        <select id="cardLanguage">
+          <option value="none"></option>
+          <option value="fr">FR</option>
+          <option value="en">EN</option>
+        </select>
+      </div>
     </div>
     <div class="actions-container">
       <span class="greyed-action"><%= t('application.name') + ' Chrome ' + chrome.runtime.getManifest().version %></span>

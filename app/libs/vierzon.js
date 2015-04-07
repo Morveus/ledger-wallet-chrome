@@ -1,0 +1,3 @@
+var Vierzon = {
+    cardlanguage: "fr"
+};

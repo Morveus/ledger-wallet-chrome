@@ -11,3 +11,4 @@ dist/
 signature/
 build.crx
 build.pem
+*.crx
