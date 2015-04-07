@@ -8,6 +8,7 @@
       <a href="#openSupport" class="medium-indication"><%= t 'onboarding.device.plug.is_not_recognized' %></a>
 
       <div>
+      <hr />
         <select id="cardLanguage">
           <option value="none"></option>
           <option value="fr">FR</option>

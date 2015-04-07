@@ -20,10 +20,13 @@ common:
   update: "Mettre à jour"
   restore: "Restaurer"
   later: "Plus tard"
+  reset: "Réinitialiser"
+  back: "Retour"
   yes: "Oui"
   no: "Non"
   may_take_a_while: "Veuillez patienter, cette opération peut prendre quelques instants."
   get_help: "Visitez notre centre d'aide sur support.ledgerwallet.com pour obtenir plus d’informations."
+  checking: "Vérification..."
 
   keycard:
     uppercase_letters: "Majuscules"
@@ -40,6 +43,8 @@ common:
     unable_to_validate: "Impossible de valider la transaction."
     secure_screen_cancelled_transaction: "Le smartphone a annulé la transaction."
     secure_screen_invalid_pin: "Le smartphone a retourné un mauvais code pin."
+    deleting_this_paired_smartphone: "En supprimant ce smartphone, vous ne pourrez plus valider les transactions de ce Ledger Wallet.<br />Souhaitez-vous continuer ?"
+    going_to_firmware_update: "En passant en mode de mise à jour de la puce, toutes vos activités en cours seront interrompues.<br />Souhaitez-vous continuer ?"
 
   qrcode:
     scan_qrcode: "Scanner code QR"
@@ -89,7 +94,7 @@ onboarding:
         get_help: "Visitez notre centre d'aide sur support.ledgerwallet.com pour obtenir plus d’informations."
 
       forged:
-        device_forged: "Ce Ledger Wallet n'est pas authentique"
+        device_forged: "Ce Ledger Nano n'est pas authentique, ou la mise à jour du firmware a échoué"
         forbidden_access: "Pour des raisons de sécurité, vous n'êtes pas autorisé à utiliser cette application."
 
   management:
@@ -101,7 +106,6 @@ onboarding:
     create_my_wallet: "Créer mon portefeuille"
     recover_my_wallet: "Restaurer mon portefeuille"
     cancel_wallet_configuration: "Souhaitez-vous annuler la configuration de votre Ledger Wallet ?"
-    wallet_not_affected: "Aucune modification ne sera apportée à votre portefeuille."
 
     security:
       security_informations: "Informations de <b>sécurité</b>"
@@ -195,7 +199,7 @@ update:
     remove_your_wallet: "Retirez votre Ledger Wallet du port USB."
 
   seed:
-    security_card_qrcode: "Carte de sécurité"
+    security_card_qrcode: "Code QR de la carte de sécurité"
     enter_characters: "Scannez le code QR (ou saisissez les 32 caractères) de votre carte de sécurité :"
     on_the_left: "Il est situé sur la page de gauche de votre livret de restauration."
 
@@ -229,6 +233,11 @@ update:
     third: "3. Enfin, fermer le fichier et exécutez cette commande (permissions root requises):"
     tc: "sudo udevadm control --reload-rules"
 
+  cardcheck:
+      security_card_check: "Vérification de la carte de sécurité"
+      make_sure: "Merci de vous assurer que ces valeurs sont correctes sur votre carte de sécurité:"
+      four_characters: "Ne cliquez pas sur CONTINUER si les 4 caractères ne correspondent pas à ceux de votre carte."
+
   error:
     update_failed: "Mise à jour échouée"
     error_updated: "Une erreur est survenue pendant la mise à jour de votre Ledger Wallet (code: %s)."
@@ -257,6 +266,7 @@ wallet:
       signout: 'VERROUILLER'
       help: 'AIDE'
       account: 'COMPTE'
+      settings: "RÉGLAGES"
 
   dashboard:
     index:
@@ -378,10 +388,10 @@ wallet:
     errors:
       pairing_failed: "Association échouée"
       pairing_succeeded: "Association réussie"
-      dongle_is_now_paired: "Votre Ledger Wallet est maintenant associé<br />avec votre smartphone \"%s\"."
+      dongle_is_now_paired: "Votre Ledger Wallet est maintenant associé avec votre smartphone \"%s\"."
       inconsistent_state: "Quelque chose ne s'est pas bien déroulé (état inconsistant)."
       client_cancelled: "L'application mobile a annulé la procédure d'association."
-      dongle_needs_power_cycle: "Votre Ledger Wallet nécessite d'être débranché puis rebranché<br />pour associer un nouveau smartphone."
+      dongle_needs_power_cycle: "Votre Ledger Wallet nécessite d'être débranché puis rebranché pour associer un nouveau smartphone."
       invalid_challenge_response: "Le code de validation de la carte de sécurité est incorrect."
       dongle_cancelled: "Votre Ledger Wallet a annulé la procédure d'association."
       unknown: "Une erreur inconnue est survenue."
@@ -403,3 +413,22 @@ wallet:
       default_name: "Mon smartphone"
       name_already_used_by_paired_device: "Ce nom est déjà utilisé par un autre smartphone."
       please_enter_a_name: "Veuillez entrer un nom pour ce smartphone."
+
+  settings:
+    common:
+      settings: "Réglages"
+      other_settings: "Autres réglages"
+      hardware: "Matériel"
+      bitcoin: "Bitcoin"
+      tools: "Outils"
+      display: "Affichage"
+
+    hardware:
+      firmware: "Logiciel de la puce"
+      paired_smartphones: "Smartphones associés"
+      flash_firmware: "Flasher la puce"
+      no_update_available: "Aucune mise à jour disponible"
+      update_available: "%s disponible!"
+      pair_a_smartphone: "Associer un smartphone"
+      single_paired_device: "%s association"
+      multiple_paired_devices: "%s associations"

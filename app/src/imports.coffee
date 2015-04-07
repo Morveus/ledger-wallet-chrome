@@ -58,6 +58,7 @@
         '../libs/bitcoinjs-min'
         '../libs/ISO7064Mod97_10'
         '../libs/Vierzon'
+        '../libs/zbarqrcode'
 
         # Used be m2fa.DebugClient
         '../libs/lw-api-js/ucrypt/ka'
@@ -65,25 +66,6 @@
         '../libs/lw-api-js/ucrypt/cipher'
         '../libs/lw-api-js/ucrypt/des'
         '../libs/lw-api-js/ucrypt/ecdh'
-
-        ## QR Code
-        '../libs/jsqrcode/grid'
-        '../libs/jsqrcode/version'
-        '../libs/jsqrcode/detector'
-        '../libs/jsqrcode/formatinf'
-        '../libs/jsqrcode/errorlevel'
-        '../libs/jsqrcode/bitmat'
-        '../libs/jsqrcode/datablock'
-        '../libs/jsqrcode/bmparser'
-        '../libs/jsqrcode/datamask'
-        '../libs/jsqrcode/rsdecoder'
-        '../libs/jsqrcode/gf256poly'
-        '../libs/jsqrcode/gf256'
-        '../libs/jsqrcode/decoder'
-        '../libs/jsqrcode/qrcode'
-        '../libs/jsqrcode/findpat'
-        '../libs/jsqrcode/alignpat'
-        '../libs/jsqrcode/databr'
 
         ## Application configuration
         'configuration'
@@ -117,6 +99,7 @@
         'utils/comparison_result'
         'utils/amount'
         'utils/progressbars'
+        'utils/keycard'
 
         ## Crypto
         'utils/crypto/aes'
@@ -136,10 +119,14 @@
         'utils/storage/object_store'
         'utils/storage/storage'
 
+        ## Logger
+        'utils/logger'
+
         ## Data synchronization
 
         ## Errors
         'base/errors'
+        'utils/http_error'
 
         ## Managers
         'managers/devices_manager'
@@ -174,6 +161,7 @@
         'wallet/hdwallet'
         'wallet/cache'
         'wallet/extended_public_key'
+        'wallet/sweep_private_key'
 
         'utils/database/database'
         'base/base_application'
@@ -244,6 +232,9 @@
         # Receive
         'controllers/wallet/receive/wallet_receive_index_dialog_view_controller'
 
+        # Settings
+        'controllers/wallet/settings/wallet_settings_hardware_dialog_view_controller'
+
         ## Onboarding controllers
         'controllers/onboarding/onboarding_view_controller'
         'controllers/onboarding/onboarding_navigation_controller'
@@ -300,7 +291,8 @@
         'controllers/update/update_updating_view_controller'
         'controllers/update/update_loading_view_controller'
         'controllers/update/update_done_view_controller'
-        'controllers/update/update_error_view_controller'
         'controllers/update/update_linux_view_controller'
+        'controllers/update/update_cardcheck_view_controller'
+        'controllers/update/update_error_view_controller'
 
       ]

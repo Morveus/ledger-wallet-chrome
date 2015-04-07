@@ -2,7 +2,7 @@ class @UpdateSeedViewController extends UpdateViewController
 
   localizablePageSubtitle: "update.seed.security_card_qrcode"
   navigation:
-    nextRoute: ""
+    nextRoute: "/update/cardcheck"
     previousRoute: "/onboarding/device/plug"
     previousParams: {animateIntro: no}
   view:
@@ -13,6 +13,7 @@ class @UpdateSeedViewController extends UpdateViewController
   onAfterRender: ->
     super
     @_listenEvents()
+    @view.seedInput.val @params.seed if @params?.seed?
     @_updateValidCheck()
     @showQRCodeReader()
     l(Vierzon.cardlanguage)
@@ -22,10 +23,11 @@ class @UpdateSeedViewController extends UpdateViewController
     super
 
   navigateNext: ->
-    @getRequest().setKeyCardSeed(@view.seedInput.val())
+    @navigation.nextParams = {seed: @_seedInputvalue()}
+    super
 
   shouldEnableNextButton: ->
-    @_keychardValueIsValid @view.seedInput.val()
+    @_keychardValueIsValid @_seedInputvalue()
 
   _keychardValueIsValid: (value) =>
     return @getRequest().checkIfKeyCardSeedIsValid value
@@ -63,3 +65,7 @@ class @UpdateSeedViewController extends UpdateViewController
         @navigateNext()
 
     else @view.validCheck.hide()
+
+  _seedInputvalue: ->
+    _.str.trim @view.seedInput.val()
+>>>>>>> upstream/master

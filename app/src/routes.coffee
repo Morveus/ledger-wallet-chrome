@@ -104,6 +104,11 @@ ledger.router.pluggedWalletRoutesExceptions = [
     dialog = new WalletReceiveIndexDialogViewController()
     dialog.show()
 
+  # Settings
+  route '/wallet/settings/index', (params) ->
+    dialog = new WalletSettingsHardwareDialogViewController()
+    dialog.show()
+
   # Help
   route '/wallet/help/index', (params) ->
     window.open t 'application.support_url'
@@ -139,6 +144,9 @@ ledger.router.pluggedWalletRoutesExceptions = [
 
   route '/update/linux', (param) ->
     app.navigate UPDATE_LAYOUT, UpdateLinuxViewController
+
+  route '/update/cardcheck', (param) ->
+    app.navigate UPDATE_LAYOUT, UpdateCardcheckViewController
 
   route '/update/error', (param) ->
     app.navigate UPDATE_LAYOUT, UpdateErrorViewController
