@@ -44,6 +44,7 @@ class @UpdateSeedViewController extends UpdateViewController
       @showQRCodeReader()
 
   showQRCodeReader: ->
+    l(Vierzon)
     dialog = new CommonDialogsQrcodeDialogViewController
     dialog.qrcodeCheckBlock = (data) =>
       return @_keychardValueIsValid data

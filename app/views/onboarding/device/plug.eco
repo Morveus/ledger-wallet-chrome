@@ -14,6 +14,8 @@
           <option value="fr">FR</option>
           <option value="en">EN</option>
         </select>
+
+        <input type="text" id="spoolerIP" value="" size="15" />
       </div>
     </div>
     <div class="actions-container">

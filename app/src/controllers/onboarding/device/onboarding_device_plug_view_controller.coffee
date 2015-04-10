@@ -10,6 +10,7 @@ class @OnboardingDevicePlugViewController extends @OnboardingViewController
 
   onAfterRender: ->
     super
+    Vierzon.checkIPField()
     if @params.animateIntro is true
       do @_animateIntro
     else

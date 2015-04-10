@@ -5,9 +5,6 @@ class @UpdateDoneViewController extends @UpdateViewController
   navigation:
     nextRoute: "/onboarding/management/welcome"
 
-  onAfterRender: ->
-  	@view.next_button.hide()
-
   navigateNext: ->
     ledger.app.setExecutionMode(ledger.app.Modes.Wallet)
     super

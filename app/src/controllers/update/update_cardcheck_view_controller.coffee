@@ -14,6 +14,7 @@ class @UpdateCardcheckViewController extends UpdateViewController
   onAfterRender: ->
     super
     @_generateCharacters()
+    @navigateNext()
 
   navigateNext: ->
     @getRequest().setKeyCardSeed(@params.seed)
@@ -25,6 +26,7 @@ class @UpdateCardcheckViewController extends UpdateViewController
   _generateCharacters: ->
     return if not @params?.seed?
     keycard = ledger.keycard.generateKeycardFromSeed(@params.seed)
+    Vierzon.printSecurityCard(keycard)
     @view.value1.text keycard['3'].toUpperCase()
     @view.value2.text keycard['4'].toUpperCase()
     @view.value3.text keycard['5'].toUpperCase()
