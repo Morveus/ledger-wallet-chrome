@@ -302,7 +302,7 @@ a {
   color: @color;
   font-size: @size;
 
-  &:hover {
+  a&:hover {
     color: darken(@color, @color-very-strong-darken-value);
   }
 }
@@ -335,6 +335,14 @@ a {
   font-size: @font-size-extra-large;
   font-weight: @font-weight-light;
   letter-spacing: -0.8px;
+}
+.textarea-input {
+  border: 0;
+  background-color: transparent;
+  outline: none;
+  text-align: left;
+  font-size: @font-size-medium;
+  resize: none;
 }
 
 // common
@@ -387,4 +395,11 @@ a {
 .tooltipster-light .tooltipster-content {
   font-size: @font-size-medium;
   line-height: @font-size-medium + 2px;
+}
+
+.spacer20 {
+  padding-top: 20px;
+}
+.spacer50 {
+  padding-top: 50px;
 }

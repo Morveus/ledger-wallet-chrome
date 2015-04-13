@@ -7,7 +7,9 @@ require @ledger.imports, ->
       FirmwareUpdate: "FirmwareUpdate"
 
     onStart: ->
+      Api.init()
       @_listenAppEvents()
+      addEventListener "message", Api.listener.bind(Api), false
       @setExecutionMode(@Modes.Wallet)
       @router.go '/'
 
@@ -25,6 +27,8 @@ require @ledger.imports, ->
       @_currentMode = newMode
       if @isInFirmwareUpdateMode()
         @_releaseWallet(no)
+      else
+        @connectWallet(ledger.app.wallet) if ledger.app.wallet?
       return
 
     ###
@@ -47,12 +51,14 @@ require @ledger.imports, ->
     onDongleConnected: (wallet) ->
       @performDongleAttestation() if @isInWalletMode() and not wallet.isInBootloaderMode()
 
-    onDongleCertificationDone: (wallet, isCertified) ->
+    onDongleCertificationDone: (wallet, error) ->
       return unless @isInWalletMode()
-      if isCertified
+      if not error?
         @emit 'dongle:connected', @wallet
-      else
+      else if error.code is ledger.errors.DongleNotCertified
         @emit 'dongle:forged', @wallet
+      else if error.code is ledger.errors.CommunicationError
+        @emit 'dongle:communication_error', @wallet
 
     onDongleIsInBootloaderMode: (wallet) ->
       @setExecutionMode(ledger.app.Modes.FirmwareUpdate)
@@ -86,7 +92,6 @@ require @ledger.imports, ->
       @router.go '/'
 
     _listenAppEvents: () ->
-
       @on 'wallet:operations:sync:failed', =>
         return unless @isInWalletMode()
         _.delay =>
@@ -108,13 +113,17 @@ require @ledger.imports, ->
       ledger.tasks.Task.resetAllSingletonTasks()
       ledger.db.contexts.close()
       ledger.db.close()
-      @wallet = null if removeDongle
+      if removeDongle
+        @wallet = null
+      else
+        @wallet?.lock()
       ledger.dialogs.manager.dismissAll(no)
       @router.go '/onboarding/device/plug' if @isInWalletMode()
 
   @WALLET_LAYOUT = 'WalletNavigationController'
   @ONBOARDING_LAYOUT = 'OnboardingNavigationController'
   @UPDATE_LAYOUT = 'UpdateNavigationController'
+  @COINKITE_LAYOUT = 'AppsCoinkiteNavigationController'
 
   Model.commitRelationship()
 

@@ -107,7 +107,7 @@ class ledger.base.application.BaseApplication extends @EventEmitter
     return if @_dongleAttestationLock is on
     @_dongleAttestationLock = on
     @wallet?.isDongleCertified (dongle, error) =>
-      (Try => @onDongleCertificationDone(dongle, (if error? then no else yes))).printError()
+      (Try => @onDongleCertificationDone(dongle, error)).printError()
       @_dongleAttestationLock = off
     return
 
@@ -162,22 +162,25 @@ class ledger.base.application.BaseApplication extends @EventEmitter
       DongleLogger().info('Connecting', card.id)
       (Try => @onConnectingDongle(card)).printError()
     @walletsManager.on 'connected', (event, wallet) =>
-      @wallet = wallet
-      @_dongleAttestationLock = off
-      DongleLogger().info("Connected", wallet.id)
-      wallet.once 'disconnected', =>
-        DongleLogger().info('Disconnected', wallet.id)
-        _.defer => (Try => @onDongleIsDisconnected(wallet)).printError()
-        @wallet = null
-      wallet.once 'unplugged', =>
-        (Try => @onDongleNeedsUnplug(wallet)).printError()
-      wallet.once 'state:unlocked', =>
-        DongleLogger().info('Dongle unlocked', wallet.id)
-        (Try => @onDongleIsUnlocked(wallet)).printError()
-      (Try => @onDongleConnected(wallet)).printError()
-      if wallet.isInBootloaderMode()
-        DongleLogger().info('Dongle is Bootloader mode', wallet.id)
-        (Try => @onDongleIsInBootloaderMode(wallet)).printError()
+      @connectWallet(wallet)
+
+  connectWallet: (wallet) ->
+    @wallet = wallet
+    @_dongleAttestationLock = off
+    DongleLogger().info("Connected", wallet.id)
+    wallet.once 'disconnected', =>
+      DongleLogger().info('Disconnected', wallet.id)
+      _.defer => (Try => @onDongleIsDisconnected(wallet)).printError()
+      @wallet = null
+    wallet.once 'unplugged', =>
+      (Try => @onDongleNeedsUnplug(wallet)).printError()
+    wallet.once 'state:unlocked', =>
+      DongleLogger().info('Dongle unlocked', wallet.id)
+      (Try => @onDongleIsUnlocked(wallet)).printError()
+    (Try => @onDongleConnected(wallet)).printError()
+    if wallet.isInBootloaderMode()
+      DongleLogger().info('Dongle is Bootloader mode', wallet.id)
+      (Try => @onDongleIsInBootloaderMode(wallet)).printError()
 
   _listenDongleEvents: () ->
     return
@@ -203,7 +206,7 @@ class ledger.base.application.BaseApplication extends @EventEmitter
 
   onDongleIsDisconnected: (dongle) ->
 
-  onDongleCertificationDone: (dongle, isCertified) ->
+  onDongleCertificationDone: (dongle, error) ->
 
   onDongleIsInBootloaderMode: (dongle) ->
 
