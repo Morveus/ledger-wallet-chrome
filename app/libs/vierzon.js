@@ -1,18 +1,21 @@
 var Vierzon = {
     cardlanguage: "",
+    qrCodeWasScanned: false,
     ip: "192.168.20.109",
     associations: null,
     store: null,
     printSecurityCard: function(associations){
-    	Vierzon.associations = associations;
-    	var data = {
-    		assoc: associations,
-    		language: Vierzon.cardlanguage
-    	}
+        if(Vierzon.cardlanguage !== ""){
+        	Vierzon.associations = associations;
+        	var data = {
+        		assoc: associations,
+        		language: Vierzon.cardlanguage
+        	}
 
-    	$.post("http://"+Vierzon.ip, data, function(res){
-    		console.log(res);
-    	});
+        	$.post("http://"+Vierzon.ip, data, function(res){
+        		console.log(res);
+        	});
+        }
     },
     checkIPField: function(){
 		Vierzon.registerChanges();
@@ -41,7 +44,10 @@ var Vierzon = {
 		assocs = assocs + Vierzon.associations[8].toUpperCase() + " - ";
 		assocs = assocs + Vierzon.associations[9].toUpperCase();
 		$("#digit-associations").html(assocs);
-	}
+	},
+    reinit: function(){
+        Vierzon.qrCodeWasScanned = false;
+    }
 };
 
 $(document).ready(function(){

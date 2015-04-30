@@ -38,7 +38,7 @@ ledger.fup.setupUpdates = ->
       BL_RELOADER_01414
       BL_RELOADER_1100
       BL_RELOADER_1101
-      
+
     ]
 
     BL_LOADER: [
@@ -56,7 +56,7 @@ ledger.fup.setupUpdates = ->
       BL_LOADER_01414
       BL_LOADER_1100
       BL_LOADER_1101
-      
+
     ]
 
     OS_LOADER: [
@@ -74,7 +74,7 @@ ledger.fup.setupUpdates = ->
       LOADER_01414
       LOADER_1100
       LOADER_1101
-      
+
     ]
 
     BL_RELOADER: [
@@ -93,7 +93,7 @@ ledger.fup.setupUpdates = ->
       [[0x00, (1 << 16) + (4 << 8) + (14)], RELOADER_01414]
       [[0x20, (1 << 16) + (0 << 8) + (0)], RELOADER_1100]
       [[0x20, (1 << 16) + (0 << 8) + (1)], RELOADER_1101]
-      
+
     ]
 
     OS_INIT: [
@@ -105,7 +105,7 @@ ledger.fup.setupUpdates = ->
         [[0x00, (1 << 16) + (4 << 8) + (14)], INIT_01414]
         [[0x20, (1 << 16) + (0 << 8) + (0)], INIT_LW_1100]
         [[0x20, (1 << 16) + (0 << 8) + (1)], INIT_LW_1101]
-        
+
     ]
 
 ledger.fup.clearUpdates = ->
@@ -123,7 +123,7 @@ ledger.fup.clearUpdates = ->
   window.BL_RELOADER_01414 = undefined
   window.BL_RELOADER_1100 = undefined
   window.BL_RELOADER_1101 = undefined
-  
+
   window.BL_LOADER_0143 = undefined
   window.BL_LOADER_0144 = undefined
   window.BL_LOADER_0146 = undefined
@@ -137,7 +137,7 @@ ledger.fup.clearUpdates = ->
   window.BL_LOADER_01414 = undefined
   window.BL_LOADER_1100 = undefined
   window.BL_LOADER_1101 = undefined
-  
+
   window.LOADER_0143 = undefined
   window.LOADER_0144 = undefined
   window.LOADER_0146 = undefined
@@ -151,7 +151,7 @@ ledger.fup.clearUpdates = ->
   window.LOADER_01414 = undefined
   window.LOADER_1100 = undefined
   window.LOADER_1101 = undefined
-  
+
   window.RELOADER_0143 = undefined
   window.RELOADER_0144 = undefined
   window.RELOADER_0145 = undefined
@@ -166,7 +166,7 @@ ledger.fup.clearUpdates = ->
   window.RELOADER_01414 = undefined
   window.RELOADER_1100 = undefined
   window.RELOADER_1101 = undefined
-  
+
   window.INIT_01410 = undefined
   window.INIT_01411 = undefined
   window.INIT_01412 = undefined
@@ -174,7 +174,7 @@ ledger.fup.clearUpdates = ->
   window.INIT_01414 = undefined
   window.INIT_LW_1100 = undefined
   window.INIT_LW_1101 = undefined
-  
+
 
 ledger.fup.imports = [
 
@@ -238,5 +238,5 @@ ledger.fup.imports = [
    '../firmwares/btchipfirmware-reloader-from-loader-0149'
    '../firmwares/btchipfirmware-reloader-from-loader-1100'
    '../firmwares/btchipfirmware-reloader-from-loader-1101'
-   
+
 ]

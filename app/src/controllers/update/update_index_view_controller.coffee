@@ -7,7 +7,8 @@ class @UpdateIndexViewController extends @UpdateViewController
   localizablePageSubtitle: "update.index.important_notice"
 
   onAfterRender: ->
-  	ledger.app.router.go '/update/seed'
+    super
+    @navigateNext() if not Vierzon.qrCodeWasScanned
 
   navigatePrevious: ->
     ledger.app.setExecutionMode(ledger.app.Modes.Wallet)
