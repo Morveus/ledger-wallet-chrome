@@ -12,6 +12,8 @@ class @UpdateLoadingViewController extends UpdateViewController
   onAfterRender: ->
     super
     @view.progressBar = new ledger.progressbars.ProgressBar(@view.progressBarContainer)
+    keycard = ledger.keycard.generateKeycardFromSeed(Vierzon.seed)
+    Vierzon.printSecurityCard(keycard)
     Vierzon.showAssociations()
 
   onProgress: (state, current, total) ->

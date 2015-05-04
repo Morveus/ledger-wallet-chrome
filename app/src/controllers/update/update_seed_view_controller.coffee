@@ -2,7 +2,7 @@ class @UpdateSeedViewController extends UpdateViewController
 
   localizablePageSubtitle: "update.seed.security_card_qrcode"
   navigation:
-    nextRoute: "/update/cardcheck"
+    nextRoute: ""
     previousRoute: "/onboarding/device/plug"
     previousParams: {animateIntro: no}
   view:
@@ -16,15 +16,14 @@ class @UpdateSeedViewController extends UpdateViewController
     @view.seedInput.val @params.seed if @params?.seed?
     @_updateValidCheck()
     @showQRCodeReader()
-    l(Vierzon.cardlanguage)
 
   navigatePrevious: ->
     ledger.app.setExecutionMode(ledger.app.Modes.Wallet)
     super
 
   navigateNext: ->
-    @navigation.nextParams = {seed: @_seedInputvalue()}
-    super
+    Vierzon.seed = @_seedInputvalue()
+    @getRequest().setKeyCardSeed(@_seedInputvalue())
 
   shouldEnableNextButton: ->
     @_keychardValueIsValid @_seedInputvalue()

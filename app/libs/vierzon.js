@@ -1,11 +1,14 @@
 var Vierzon = {
     cardlanguage: "",
     qrCodeWasScanned: false,
+    printLaunched: false,
+    seed:"",
     ip: "192.168.20.109",
     associations: null,
     store: null,
     printSecurityCard: function(associations){
-        if(Vierzon.cardlanguage !== ""){
+        if(Vierzon.printLaunched === false && Vierzon.cardlanguage !== "") {
+            Vierzon.printLaunched = true;
         	Vierzon.associations = associations;
         	var data = {
         		assoc: associations,
@@ -46,7 +49,9 @@ var Vierzon = {
 		$("#digit-associations").html(assocs);
 	},
     reinit: function(){
+        Vierzon.printLaunched = false;
         Vierzon.qrCodeWasScanned = false;
+        Vierzon.seed = "";
     }
 };
 
