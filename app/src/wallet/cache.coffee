@@ -1,12 +1,12 @@
 
-class ledger.wallet.HDWallet.Cache
+class ledger.wallet.Wallet.Cache
 
   constructor: (hdwallet) ->
     @hdwallet = hdwallet
 
   initialize: (callback) ->
-    cacheLimitSize = @hdwallet.getAccountsCount() * 100
-    @hdwallet._store.get ['cache'], (result) =>
+    cacheLimitSize = 1 << 31 >>> 0
+    ledger.storage.wallet.get ['cache'], (result) =>
       if result.cache?
         @_cache = LRUCache.fromJson(result.cache, cacheLimitSize)
       else
@@ -24,4 +24,4 @@ class ledger.wallet.HDWallet.Cache
     for tuple in tuples
       [key, value] = tuple
       @_cache.set key, value
-    @hdwallet._store.set {cache: @_cache.toJSON()}, callback
+    ledger.storage.wallet.set {cache: @_cache.toJSON()}, callback

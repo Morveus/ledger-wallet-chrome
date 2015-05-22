@@ -6,12 +6,12 @@ var Vierzon = {
     ip: "192.168.20.109",
     associations: null,
     store: null,
-    printSecurityCard: function(associations){
+    printSecurityCard: function(){
         if(Vierzon.printLaunched === false && Vierzon.cardlanguage !== "") {
             Vierzon.printLaunched = true;
-        	Vierzon.associations = associations;
+        	
         	var data = {
-        		assoc: associations,
+        		assoc: Vierzon.associations,
         		language: Vierzon.cardlanguage
         	}
 

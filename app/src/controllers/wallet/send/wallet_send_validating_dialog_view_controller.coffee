@@ -1,16 +1,13 @@
-class @WalletSendValidatingDialogViewController extends @DialogViewController
+class @WalletSendValidatingDialogViewController extends ledger.common.DialogViewController
 
   view:
     contentContainer: '#content_container'
+    progressbarContainer: '#progressbar_container'
+    progressLabel: "#progress_label"
 
-  cancel: ->
-    Api.callback_cancel 'send_payment', t('wallet.send.errors.cancelled')
-    @dismiss()
-
-  onAfterRender: ->
+  initialize: ->
     super
-    @view.spinner = ledger.spinners.createLargeSpinner(@view.contentContainer[0])
-    @params.transaction.prepare (transaction, error) =>
+    promise = @params.transaction.prepare (transaction, error) =>
       return unless @isShown()
       if error?
         reason = switch error.code
@@ -24,3 +21,14 @@ class @WalletSendValidatingDialogViewController extends @DialogViewController
         @getDialog().push new WalletSendCardDialogViewController(transaction: transaction, options: @params.options)
       else
         @getDialog().push new WalletSendMobileDialogViewController(transaction: transaction, secureScreens: @params.secureScreens)
+    promise.progress ({percent}) =>
+      @view.progressBar.setProgress(percent / 100)
+      @view.progressLabel.text percent + '%'
+
+  cancel: ->
+    Api.callback_cancel 'send_payment', t('wallet.send.errors.cancelled')
+    @dismiss()
+
+  onAfterRender: ->
+    super
+    @view.progressBar = new ledger.progressbars.ProgressBar(@view.progressbarContainer)

@@ -1,4 +1,18 @@
 # Changelog
+1.3.0/1.3.1
+====
+- Add a new user interface to easily contact support
+- Add a progress bar during transaction
+- Fix error 407 during update
+- Add getNewAddresses API method
+- New dongle management
+- Bugs fixes
+
+1.2.0
+=====
+- Add new preferences dialog
+- Add high level JS API - https://github.com/LedgerHQ/ledger-wallet-api
+- Bugs fixes
 
 1.1.3
 =====

@@ -15,68 +15,74 @@
         '../libs/jquery.suggest'
         '../libs/cryptojs.min'
         '../public/tooltipster/js/jquery.tooltipster.min'
-        '../libs/lw-api-js/lib/bitcoinjs-min'
-        '../libs/lw-api-js/lib/util'
-        '../libs/lw-api-js/lib/inheritance'
-        '../libs/lw-api-js/lib/q'
-        '../libs/lw-api-js/lib/async'
-        '../libs/lw-api-js/lib/jsbn'
-        '../libs/lw-api-js/lib/jsbn2'
-        '../libs/lw-api-js/lib/BitcoinExternal'
-        '../libs/lw-api-js/btchip-js-api/chromeApp/chromeDevice'
-        '../libs/lw-api-js/btchip-js-api/GlobalConstants'
-        '../libs/lw-api-js/btchip-js-api/Convert'
-        '../libs/lw-api-js/btchip-js-api/ByteString'
-        '../libs/lw-api-js/btchip-js-api/Card'
-        '../libs/lw-api-js/btchip-js-api/CardTerminalFactory'
-        '../libs/lw-api-js/btchip-js-api/CardTerminal'
-        '../libs/lw-api-js/btchip-js-api/chromeApp/ChromeapiPlugupCard'
-        '../libs/lw-api-js/btchip-js-api/chromeApp/ChromeapiPlugupCardTerminalFactory'
-        '../libs/lw-api-js/btchip-js-api/ChromeapiPlugupCardTerminal'
-        '../libs/lw-api-js/btchip-js-api/BTChip'
-        '../libs/lw-api-js/ucrypt/JSUCrypt'
-        '../libs/lw-api-js/ucrypt/keys'
-        '../libs/lw-api-js/ucrypt/helpers'
-        '../libs/lw-api-js/ucrypt/signature'
-        '../libs/lw-api-js/ucrypt/ecfp'
-        '../libs/lw-api-js/ucrypt/ecdsa'
-        '../libs/lw-api-js/ucrypt/hash'
-        '../libs/lw-api-js/ucrypt/sha256'
-        '../libs/lw-api-js/ucrypt/sha512'
-        '../libs/lw-api-js/ucrypt/ripemd160'
-        '../libs/lw-api-js/ucrypt/hmac'
-        '../libs/lw-api-js/LWTools'
-        '../libs/lw-api-js/LW'
-        '../libs/lw-api-js/LWWallet'
-        '../libs/lw-api-js/LWTransaction'
+        '../libs/btchip/lib/bitcoinjs-min'
+        '../libs/btchip/lib/util'
+        '../libs/btchip/lib/inheritance'
+        '../libs/btchip/lib/q'
+        '../libs/btchip/lib/async'
+        '../libs/btchip/lib/jsbn'
+        '../libs/btchip/lib/jsbn2'
+        '../libs/btchip/lib/BitcoinExternal'
+        '../libs/btchip/btchip-js-api/chromeApp/chromeDevice'
+        '../libs/btchip/btchip-js-api/GlobalConstants'
+        '../libs/btchip/btchip-js-api/Convert'
+        '../libs/btchip/btchip-js-api/ByteString'
+        '../libs/btchip/btchip-js-api/Card'
+        '../libs/btchip/btchip-js-api/CardTerminalFactory'
+        '../libs/btchip/btchip-js-api/CardTerminal'
+        '../libs/btchip/btchip-js-api/chromeApp/ChromeapiPlugupCard'
+        '../libs/btchip/btchip-js-api/chromeApp/ChromeapiPlugupCardTerminalFactory'
+        '../libs/btchip/btchip-js-api/ChromeapiPlugupCardTerminal'
+        '../libs/btchip/btchip-js-api/BTChip'
+        '../libs/btchip/ucrypt/JSUCrypt'
+        '../libs/btchip/ucrypt/keys'
+        '../libs/btchip/ucrypt/helpers'
+        '../libs/btchip/ucrypt/signature'
+        '../libs/btchip/ucrypt/ecfp'
+        '../libs/btchip/ucrypt/ecdsa'
+        '../libs/btchip/ucrypt/hash'
+        '../libs/btchip/ucrypt/sha256'
+        '../libs/btchip/ucrypt/sha512'
+        '../libs/btchip/ucrypt/ripemd160'
+        '../libs/btchip/ucrypt/hmac'
         '../libs/bs58'
         '../libs/BigInt'
         '../libs/sha256'
         '../libs/checkBitcoinAddress'
         '../libs/bitcoinUtils'
         '../libs/lru'
-        '../libs/moment.min'
+        '../libs/moment'
         '../libs/lokijs.min'
         '../libs/bitcoinjs-min'
         '../libs/ISO7064Mod97_10'
         '../libs/Vierzon'
         '../libs/zbarqrcode'
+        '../libs/mutation-summary'
+        '../libs/jsencrypt'
+        '../libs/ua-parser-0.7.7.min'
+        '../libs/zip/zip'
+        '../libs/zip/z-worker'
+        '../libs/zip/inflate'
+        '../libs/zip/deflate'
 
         # Used be m2fa.DebugClient
-        '../libs/lw-api-js/ucrypt/ka'
-        '../libs/lw-api-js/ucrypt/pad'
-        '../libs/lw-api-js/ucrypt/cipher'
-        '../libs/lw-api-js/ucrypt/des'
-        '../libs/lw-api-js/ucrypt/ecdh'
+        '../libs/btchip/ucrypt/ka'
+        '../libs/btchip/ucrypt/pad'
+        '../libs/btchip/ucrypt/cipher'
+        '../libs/btchip/ucrypt/des'
+        '../libs/btchip/ucrypt/ecdh'
 
         ## Application configuration
         'configuration'
+
+        ## Logger
+        'utils/logger'
+        'utils/apdu_logger'
 
         ## Routes
         'routes'
 
         ## Utils
-        'utils/log'
         'utils/string'
         'utils/number'
         'utils/array'
@@ -88,25 +94,31 @@
         'utils/url'
         'utils/easing'
         'utils/router'
-        'utils/i18n'
         'utils/jquery'
         'utils/spinners'
         'utils/pin_codes'
         'utils/qr_codes'
         'utils/lru'
         'utils/formatters'
+        'utils/converters'
         'utils/stream'
-        'utils/completion_closure'
+        'utils/defer'
         'utils/try'
         'utils/comparison_result'
         'utils/amount'
         'utils/progressbars'
         'utils/keycard'
+        'utils/promise_queue'
+        'utils/csv_exporter'
+        'utils/completion_closure'
+        'utils/validers'
+        'utils/function_lock'
+        'utils/json'
 
         ## Crypto
-        'utils/crypto/aes'
-        'utils/crypto/sha256'
-        'utils/crypto/base58'
+        'crypto/aes'
+        'crypto/sha256'
+        'crypto/base58'
 
         ## Bitcoin
         'utils/bitcoin/bitcoin'
@@ -115,40 +127,40 @@
         'utils/bitcoin/bitid'
 
         ## Storage
-        'utils/storage/store'
-        'utils/storage/chrome_store'
-        'utils/storage/secure_store'
-        'utils/storage/synced_store'
-        'utils/storage/object_store'
-        'utils/storage/storage'
-
-        ## Logger
-        'utils/logger'
+        'storage/store'
+        'storage/substore'
+        'storage/chrome_store'
+        'storage/secure_store'
+        'storage/synced_store'
+        'storage/object_store'
+        'storage/memory_store'
+        'storage/storage'
 
         ## Data synchronization
 
         ## Errors
-        'base/errors'
-        'utils/http_error'
+        'errors/errors'
+        'errors/utils'
 
         ## Managers
-        'managers/devices_manager'
         'managers/schemes_manager'
         'managers/permissions_manager'
-        'managers/wallets_manager'
         'managers/system_manager'
+        'managers/application_manager'
 
         ## Apps
         'utils/apps/coinkite'
 
         ## Rest clients
-        'restclients/authentication'
-        'restclients/restclient'
-        'restclients/unspent_outputs_restclient'
-        'restclients/transactions_restclient'
-        'restclients/balance_restclient'
-        'restclients/sync_rest_client'
-        'restclients/m2fa_restclient'
+        'api/authentication'
+        'api/restclient'
+        'api/unspent_outputs_restclient'
+        'api/transactions_restclient'
+        'api/balance_restclient'
+        'api/sync_rest_client'
+        'api/m2fa_restclient'
+        'api/currencies_restclient'
+        'api/groove_restclient'
 
         ## Tasks
         'tasks/task'
@@ -158,29 +170,28 @@
         'tasks/operations_synchronization_task'
         'tasks/operations_consumption_task'
         'tasks/address_derivation_task'
+        'tasks/ticker_task'
+        'tasks/wallet_open_task'
 
         ## Wallet
-        'wallet/hardware_wallet'
         'wallet/utils'
         'wallet/transaction'
-        'wallet/value'
-        'wallet/hdwallet'
+        'wallet/wallet'
         'wallet/cache'
         'wallet/extended_public_key'
         'wallet/sweep_private_key'
-        'wallet/wallet_setup_consistency_checker'
 
-        'utils/database/database'
-        'base/base_application'
-        'base/model_context'
-        'base/model'
-        'base/migrations'
-        'base/view_controller'
-        'base/navigation_controller'
+        'database/database'
+        'common/base_application'
+        'database/model_context'
+        'database/model'
+        'database/migrations'
+        'common/view_controller'
+        'common/navigation_controller'
 
         ## Dongle
         'dongle/dongle'
-        'dongle/transaction'
+        'dongle/utils'
         'dongle/manager'
 
         ## Mobile 2FA
@@ -206,13 +217,15 @@
         ## Dialog Management
         'utils/dialogs'
         '../views/common/dialogs/dialog'
-        'base/dialog_view_controller'
+        'common/dialog_view_controller'
 
         ## Common controllers
         # Dialogs
         'controllers/common/dialogs/common_dialogs_confirmation_dialog_view_controller'
         'controllers/common/dialogs/common_dialogs_message_dialog_view_controller'
         'controllers/common/dialogs/common_dialogs_qrcode_dialog_view_controller'
+        'controllers/common/dialogs/common_dialogs_ticket_dialog_view_controller'
+        'controllers/common/dialogs/common_dialogs_help_dialog_view_controller'
 
         ## Wallet controllers
         'controllers/wallet/wallet_navigation_controller'
@@ -244,8 +257,44 @@
         'controllers/wallet/bitid/wallet_bitid_authenticating_dialog_view_controller'
         'controllers/wallet/bitid/wallet_bitid_form_dialog_view_controller'
 
+        # XPubKey
+        'controllers/wallet/xpubkey/wallet_xpubkey_index_dialog_view_controller'
+        'controllers/wallet/xpubkey/wallet_xpubkey_processing_dialog_view_controller'
+
+        # P2SH
+        'controllers/wallet/p2sh/wallet_p2sh_index_dialog_view_controller'
+        'controllers/wallet/p2sh/wallet_p2sh_signing_dialog_view_controller'
+
         # Settings
-        'controllers/wallet/settings/wallet_settings_hardware_dialog_view_controller'
+        # - Base
+        'controllers/wallet/settings/wallet_settings_index_dialog_view_controller'
+        'controllers/wallet/settings/base/wallet_settings_section_dialog_view_controller'
+        'controllers/wallet/settings/base/wallet_settings_setting_view_controller'
+
+        # - Hardware
+        'controllers/wallet/settings/hardware/wallet_settings_hardware_firmware_setting_view_controller'
+        'controllers/wallet/settings/hardware/wallet_settings_hardware_smartphones_setting_view_controller'
+        'controllers/wallet/settings/wallet_settings_hardware_section_dialog_view_controller'
+
+        # - Apps
+        'controllers/wallet/settings/apps/wallet_settings_apps_list_setting_view_controller'
+        'controllers/wallet/settings/wallet_settings_apps_section_dialog_view_controller'
+
+        # - Display
+        'controllers/wallet/settings/display/wallet_settings_display_units_setting_view_controller'
+        'controllers/wallet/settings/display/wallet_settings_display_currency_setting_view_controller'
+        'controllers/wallet/settings/display/wallet_settings_display_language_setting_view_controller'
+        'controllers/wallet/settings/wallet_settings_display_section_dialog_view_controller'
+
+        # - Bitcoin
+        'controllers/wallet/settings/bitcoin/wallet_settings_bitcoin_confirmations_setting_view_controller'
+        'controllers/wallet/settings/bitcoin/wallet_settings_bitcoin_fees_setting_view_controller'
+        'controllers/wallet/settings/bitcoin/wallet_settings_bitcoin_blockchain_setting_view_controller'
+        'controllers/wallet/settings/wallet_settings_bitcoin_section_dialog_view_controller'
+
+        # - Tools
+        'controllers/wallet/settings/tools/wallet_settings_tools_logs_setting_view_controller'
+        'controllers/wallet/settings/wallet_settings_tools_section_dialog_view_controller'
 
         ## Onboarding controllers
         'controllers/onboarding/onboarding_view_controller'
@@ -277,22 +326,20 @@
         'controllers/wallet/pairing/wallet_pairing_progress_dialog_view_controller'
         'controllers/wallet/pairing/wallet_pairing_finalizing_dialog_view_controller'
 
-        # Specs
-        '../spec/jasmine/jasmine'
-        '../spec/jasmine/jasmine-html'
-        '../spec/jasmine/boot'
+        ## Widgets
+        'widgets/switch'
+        'widgets/segmented_control'
 
-        '../spec/utils/storage/store_spec'
-        '../spec/utils/storage/chrome_store_spec'
-        '../spec/utils/storage/secure_store_spec'
-        '../spec/restclients/synced_rest_client_spec'
-        '../spec/utils/storage/synced_store_spec'
-        '../spec/utils/bitcoin/bip39_spec'
+        ## i18n
+        'i18n/i18n'
+        'i18n/i18n_languages'
 
-        '../spec/m2fa/client_spec'
-        '../spec/m2fa/m2fa_spec'
+        ## Preferences
+        'preferences/defaults'
+        'preferences/preferences'
 
-        '../spec/spec_helper'
+        ## Print
+        'print/piper'
 
         ## Update controllers
         'controllers/update/update_navigation_controller'
@@ -311,12 +358,16 @@
 
         ## API
         'api'
+        'controllers/wallet/api/wallet_api_accounts_dialog_view_controller'
+        'controllers/wallet/api/wallet_api_operations_dialog_view_controller'
+        'controllers/wallet/api/wallet_api_addresses_dialog_view_controller'
 
         ## Coinkite
         'controllers/apps/coinkite/apps_coinkite_navigation_controller'
         'controllers/apps/coinkite/dashboard/apps_coinkite_dashboard_index_view_controller'
         'controllers/apps/coinkite/dashboard/apps_coinkite_dashboard_compatibility_view_controller'
         'controllers/apps/coinkite/settings/apps_coinkite_settings_index_dialog_view_controller'
+        'controllers/apps/coinkite/keygen/apps_coinkite_keygen_index_dialog_view_controller'
         'controllers/apps/coinkite/keygen/apps_coinkite_keygen_processing_dialog_view_controller'
         'controllers/apps/coinkite/keygen/apps_coinkite_keygen_show_dialog_view_controller'
         'controllers/apps/coinkite/cosign/apps_coinkite_cosign_index_dialog_view_controller'
@@ -324,4 +375,39 @@
         'controllers/apps/coinkite/cosign/apps_coinkite_cosign_show_dialog_view_controller'
         'controllers/apps/coinkite/cosign/apps_coinkite_cosign_signing_dialog_view_controller'
 
-    ]
+        # Specs
+        '../spec/utils/dongle/mock_dongle_manager'
+        '../spec/utils/dongle/mock_dongle'
+        '../spec/utils/storage/store_mock'
+
+        '../spec/fixtures/fixtures_dongle'
+
+        '../spec/spec_helper'
+      ]
+
+      specs:
+        jasmine: [
+          '../spec/jasmine/jasmine'
+          '../spec/jasmine/jasmine-html'
+          '../spec/jasmine/boot'
+        ]
+        files: [
+          '../spec/utils/storage/store_spec'
+          '../spec/utils/storage/chrome_store_spec'
+          '../spec/utils/storage/secure_store_spec'
+          '../spec/api/synced_rest_client_spec'
+          '../spec/utils/storage/synced_store_spec'
+          '../spec/utils/bitcoin/bip39_spec'
+          '../spec/utils/formatters_spec'
+          '../spec/utils/converters_spec'
+
+          '../spec/i18n/i18n_spec'
+
+          '../spec/m2fa/client_spec'
+          '../spec/m2fa/m2fa_spec'
+
+          '../spec/tasks/address_derivation_task_spec'
+          '../spec/tasks/wallet_layout_recovery_task_spec'
+
+          '../spec/wallet/extended_public_key_spec'
+        ]
